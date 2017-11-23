@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Icon, Form} from 'antd';
-import {FormItemLayout} from 'zk-tookit/antd';
+import FormItemLayout from '../form-item-layout/FormItemLayout';
 import {getFormElement} from '../form-util/FormUtils';
 import './style.less';
 

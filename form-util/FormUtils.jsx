@@ -2,7 +2,8 @@
  * form相关封装的一些基础方法，EditCell、QueryItem、FormPage等组件可能用到
  * */
 import React from 'react';
-import {InputClear, FormItemLayout} from 'zk-tookit/antd';
+import InputClear from '../input-clear/InputClear';
+import FormItemLayout from '../form-item-layout/FormItemLayout';
 import {InputNumber, Input, Select, Checkbox, Radio, Switch, DatePicker, TimePicker, Cascader} from 'antd';
 
 // input number textarea password mobile email select select-tree checkbox radio switch date time date-time cascader
