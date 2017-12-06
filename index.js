@@ -21,4 +21,4 @@ export ListPage from './list-page';
 export PopPrompt from './pop-prompt/PopPrompt';
 export ToolItem from './tool-item';
 export Modal from './modal/Modal';
-export AnimationTable from './animation-table/AnimationTable';
+export Table from './table';
