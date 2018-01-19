@@ -87,7 +87,7 @@ export default class QueryItem extends Component {
                                 }
                                 {
                                     index === items.length - 1 && (showSearchButton || showResetButton) ?
-                                        <div style={{display: 'inline-block'}}>
+                                        <div style={{display: 'inline-block', paddingTop: '3px'}}>
                                             {
                                                 showSearchButton ?
                                                     <Button
