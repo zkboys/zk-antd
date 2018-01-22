@@ -174,7 +174,7 @@ export default class extends Component {
                         >
                             <QueryItem
                                 collapsed={collapsed}
-                                outerForm={form}
+                                form={form}
                                 items={queryItems}
                                 showSearchButton={showSearchButton}
                                 showResetButton={showResetButton}

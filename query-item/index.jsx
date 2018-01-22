@@ -11,12 +11,6 @@ import {getFormItem} from '../form-util/FormUtils';
  */
 @Form.create()
 export default class QueryItem extends Component {
-    constructor(props) {
-        super(props);
-        const {outerForm, form} = this.props;
-
-        this.form = outerForm ? outerForm : form;
-    }
 
     static propTypes = {
         showSearchButton: PropTypes.bool,
@@ -24,7 +18,6 @@ export default class QueryItem extends Component {
         collapsed: PropTypes.bool,
         items: PropTypes.array,
         onSubmit: PropTypes.func,
-        outerForm: PropTypes.object,
     };
 
     static defaultProps = {
@@ -37,8 +30,7 @@ export default class QueryItem extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const {onSubmit} = this.props;
-        const form = this.form;
+        const {onSubmit, form} = this.props;
         form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 onSubmit(values);
@@ -52,8 +44,8 @@ export default class QueryItem extends Component {
             showSearchButton,
             showResetButton,
             collapsed,
+            form,
         } = this.props;
-        const form = this.form;
 
         return (
             <Form onSubmit={this.handleSubmit}>
