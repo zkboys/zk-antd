@@ -4,7 +4,18 @@
 import React from 'react';
 import InputClear from '../input-clear/InputClear';
 import FormItemLayout from '../form-item-layout/FormItemLayout';
-import {InputNumber, Input, Select, Checkbox, Radio, Switch, DatePicker, TimePicker, Cascader} from 'antd';
+import {
+    InputNumber,
+    Input,
+    Select,
+    TreeSelect,
+    Checkbox,
+    Radio,
+    Switch,
+    DatePicker,
+    TimePicker,
+    Cascader,
+} from 'antd';
 
 // input number textarea password mobile email select select-tree checkbox radio switch date time date-time cascader
 /*
@@ -74,6 +85,8 @@ export function getFormElement(item, form) {
             </Select>
         );
     }
+
+    if (type === 'select-tree') return <TreeSelect {...elementProps} treeData={elementProps.options}/>;
 
     if (type === 'checkbox') return <Checkbox {...elementProps}>{elementProps.label}</Checkbox>;
 

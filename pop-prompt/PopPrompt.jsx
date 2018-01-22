@@ -9,7 +9,6 @@ const FormItem = Form.Item;
  *
  */
 
-// TODO 是否提供外部form功能？
 @Form.create()
 export default class PopPrompt extends Component {
     constructor(props) {

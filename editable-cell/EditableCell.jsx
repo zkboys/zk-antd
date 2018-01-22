@@ -9,7 +9,8 @@ import './style.less';
  * 可编辑单元格封装，全局form使用 EditableCell，可以显示错误提示
  * 每个 EditableCell 有自己的from，使用 export default Form.create()(EditableCell);
  */
-export class EditableRowCell extends Component {
+@Form.create()
+export default class EditableRowCell extends Component {
     constructor(props) {
         super(props);
         const currProps = this.props;
@@ -36,9 +37,6 @@ export class EditableRowCell extends Component {
     };
 
     static propTypes = {
-        // fixme: 改名为form，所有form相关的组件都可这样封装，外部传入from可以提高灵活性；内部form可以简化组件。
-        // fixme: 额外编写一个组件：render 函数中，判断this.props.form const EditableCell = Form.create()(EditableRowCell); <EditableCell/> 可以进行不同的render
-        globalForm: PropTypes.object, // antd 中提供的form
         field: PropTypes.string.isRequired,
         placeholder: PropTypes.string, // 提示
         type: PropTypes.string, // 编辑类型，默认input
@@ -77,8 +75,7 @@ export class EditableRowCell extends Component {
     };
 
     handleSubmit = () => {
-        const {onSubmit} = this.props;
-        const form = 'globalForm' in this.props ? this.props.globalForm : this.props.form;
+        const {onSubmit, form} = this.props;
         form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 onSubmit(values);
@@ -94,8 +91,8 @@ export class EditableRowCell extends Component {
             field,
             text,
             decorator = {},
+            form,
         } = this.props;
-        const form = 'globalForm' in this.props ? this.props.globalForm : this.props.form;
         let {getFieldDecorator} = form;
 
         if (!decorator.initialValue) decorator.initialValue = text;
@@ -144,7 +141,4 @@ export class EditableRowCell extends Component {
         );
     }
 }
-
-const EditableCell = Form.create()(EditableRowCell);
-export default EditableCell;
 
